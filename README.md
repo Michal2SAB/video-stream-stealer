@@ -7,12 +7,11 @@ Download many .ts video stream files from a website, then create a single mp4 vi
 
 2. Edit the download.js file to update the ```url``` var + update ```start```, ```end```, and ```newstart``` vars. Read info next to them in code.
 
-3. Once the program is finished and you received no errors, run these commands in your folder (make sure you have ffmpeg.exe in it) :
+3. Double click run.bat to run the program. 
 
-- ```ffmpeg -f concat -i segments.txt -c copy tsvideo.ts``` | that command will create one big .ts file out of all the segments.
-- ```ffmpeg -i tsvideo.ts -acodec copy -vcodec copy mp4video.mp4``` | that command will convert the big .ts file into one .mp4 file.
+4. Once the program is finished and you received no errors, double click on convert.bat to converts the segments into one mp4 file.
 
-4. Delete everything inside the collection folder and delete tsvideo.ts (unless you wanna keep them for some reason) and enjoy your brand new mp4 video that you just stole from some website like a champ.
+5. Delete everything inside the collection folder and delete tsvideo.ts (unless you wanna keep them for some reason) and enjoy your brand new mp4 video that you just stole from some website like a champ.
 
 # Why even do this?
 
