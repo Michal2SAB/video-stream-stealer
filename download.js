@@ -28,7 +28,7 @@ async function steal() {
             console.log("");
             console.log(`${color.normal}>> ${color.green}Done! ${color.normal}Downloaded ${end} video segments.`);
             console.log("");
-            console.log('>> ${color.cyan}Creating segments.txt in collection folder..')
+            console.log(`>> ${color.cyan}Creating segments.txt in collection folder..`)
             
             if (fs.existsSync(path)) fs.unlinkSync(path); // if segments.txt exists, delete it first.
             while(newstart <= end) {
@@ -37,7 +37,7 @@ async function steal() {
                 newstart++;
             }
             console.log("");
-            console.log("${color.normal}>> ${color.green}Success! ${color.normal}Now you can run convert.bat and create a mp4 file with it.")
+            console.log(`${color.normal}>> ${color.green}Success! ${color.normal}Now it's time to merge all .ts files into one..`)
             console.log("");
         }
         await sleep(1000); // wait 1 second, to not lose connection
