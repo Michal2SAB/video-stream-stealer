@@ -1,7 +1,7 @@
 # Description
 Download many .ts video stream files from a website, then create a single mp4 video file from them.
 
-# Requrements
+# Requirements
 1. Node.js
 2. ffmpeg.exe
 
