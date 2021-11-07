@@ -12,14 +12,22 @@ async function steal() {
     var end = 71; // you can capture with fiddler what the last segment is while playing the last seconds of a video, you can visit the link yourself and see at what point it says "not found" on the site too.
 
     const path = "segments.txt"; // where all the info for ffmpeg will be stored.
+    
+    // colors to make the console prettier
+    const color = {
+        green: '\x1b[32m',
+        cyan: '\x1b[36m',
+        normal: '\x1b[37m',
+        magenta: '\x1b[35m'
+    }
 
     while(start <= end) {
         // if we downloaded all our segments, create segments.txt file and finish the program's job.
         if(start === end) {
             console.log("");
-            console.log(`Done, downloaded ${nr} video segments.`);
+            console.log(`${color.normal}>> ${color.green}Done! ${color.normal}Downloaded ${end} video segments.`);
             console.log("");
-            console.log('Creating segments.txt in collection folder..')
+            console.log('>> ${color.cyan}Creating segments.txt in collection folder..')
             var newstart = 1;
             if (fs.existsSync(path)) fs.unlinkSync(path); // if segments.txt exists, delete it first.
             while(newstart <= end) {
@@ -28,14 +36,14 @@ async function steal() {
                 newstart++;
             }
             console.log("");
-            console.log("Done, now you can run convert.bat and create a mp4 file with it.")
+            console.log("${color.normal}>> ${color.green}Success! ${color.normal}Now you can run convert.bat and create a mp4 file with it.")
         }
         await sleep(1000); // wait 1 second, to not lose connection
         try {
             var nr = start.toString();
             var url = `https://example.com/segments/720p-${nr}.ts-v1.ts`; // the link you captured with fiddler while playing your video. ${nr} is the number for next .ts fragment, so it'd be "720p-121.ts-v1.ts" for example.
 
-            if(start != end) console.log(`Downloading: "${nr}.ts"`);
+            if(start != end) console.log(`${color.cyan}Downloading: ${color.yellow + nr}.ts`);
             const file = fs.createWriteStream('./collection/' + nr + '.ts');
 
             const response = https.get(url, function(response) {
