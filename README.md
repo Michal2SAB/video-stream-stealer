@@ -13,7 +13,7 @@ Download many .ts video stream files from a website, then create a single mp4 vi
 
 3. Run the program by double clicking run.bat. 
 
-4. Once the program is finished and you received no errors, enjoy your brand new .mp4 video that you just stole from some website like a champ.
+4. Once the program is finished and you received no errors, enjoy your brand new .mp4 video that you just stole from some website like a champ. Your video will be called "mp4video.mp4".
 
 5. Also delete everything inside the collection folder and delete tsvideo.ts (unless you wanna keep them for some reason)
 
