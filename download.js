@@ -28,7 +28,7 @@ async function steal() {
                 newstart++;
             }
             console.log("");
-            console.log("Done, now you can run your ffmpeg commands and create a mp4 file.")
+            console.log("Done, now you can run convert.bat and create a mp4 file with it.")
         }
         await sleep(1000); // wait 1 second, to not lose connection
         try {
