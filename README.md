@@ -11,11 +11,11 @@ Download many .ts video stream files from a website, then create a single mp4 vi
 
 2. Edit the download.js file to update the ```url``` var + update ```start```, ```end```, and ```newstart``` vars. Read info next to them in code.
 
-3. Double click run.bat to run the program. 
+3. Run the program by double clicking run.bat. 
 
-4. Once the program is finished and you received no errors, double click on convert.bat to convert the downloaded .ts segments into one mp4 file.
+4. Once the program is finished and you received no errors, enjoy your brand new .mp4 video that you just stole from some website like a champ.
 
-5. Delete everything inside the collection folder and delete tsvideo.ts (unless you wanna keep them for some reason) and enjoy your brand new mp4 video that you just stole from some website like a champ.
+5. Also delete everything inside the collection folder and delete tsvideo.ts (unless you wanna keep them for some reason)
 
 # Why even do this?
 
