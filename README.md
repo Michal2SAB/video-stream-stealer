@@ -1,6 +1,10 @@
 # Description
 Download many .ts video stream files from a website, then create a single mp4 video file from them.
 
+# Requriements
+1. Node.js
+2. ffmpeg.exe
+
 # How to do this
 
 1. Find the url for the .ts files. Fiddler is the best option imo, cause it's simple. Just capture traffic while you're watching the video.
