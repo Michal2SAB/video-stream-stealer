@@ -18,7 +18,7 @@ async function steal() {
         green: '\x1b[32m',
         cyan: '\x1b[36m',
         normal: '\x1b[37m',
-        magenta: '\x1b[35m'
+        yellow: '\x1b[33m'
     }
 
     while(start <= end) {
