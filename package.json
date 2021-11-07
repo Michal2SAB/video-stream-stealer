@@ -1,0 +1,26 @@
+{
+  "name": "video-stream-stealer",
+  "version": "1.0.0",
+  "description": "Download many .ts video stream files from a website, then create a single mp4 video file from it.",
+  "main": "download.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "video-stream-stealer"
+  },
+  "keywords": [
+    "Videos",
+    "Stream",
+    "MP4",
+    "online",
+    "video",
+    "stream",
+    "javascript",
+    "node.js",
+    "ffmpeg"
+  ],
+  "author": "Michal2SAB",
+  "license": "ISC"
+}
