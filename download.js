@@ -8,8 +8,9 @@ function sleep(millis) {
 };
 
 async function steal() {
-    var start = 0; // sometimes sites start with segment 1, sometimes 0, you have to capture the link with fiddler and see what the start number is
-    var end = 71; // you can capture with fiddler what the last segment is while playing the last seconds of a video, you can visit the link yourself and see at what point it says "not found" on the site too.
+    var start = 0; // the first video segment number (sometimes it's 1)
+    var end = 10; // the last video segment number (capture end of video with fiddler)
+    var newstart = 0; // same as start
 
     const path = "segments.txt"; // where all the info for ffmpeg will be stored.
     
@@ -28,7 +29,7 @@ async function steal() {
             console.log(`${color.normal}>> ${color.green}Done! ${color.normal}Downloaded ${end} video segments.`);
             console.log("");
             console.log('>> ${color.cyan}Creating segments.txt in collection folder..')
-            var newstart = 1;
+            
             if (fs.existsSync(path)) fs.unlinkSync(path); // if segments.txt exists, delete it first.
             while(newstart <= end) {
                 var nr = newstart.toString();
@@ -37,6 +38,7 @@ async function steal() {
             }
             console.log("");
             console.log("${color.normal}>> ${color.green}Success! ${color.normal}Now you can run convert.bat and create a mp4 file with it.")
+            console.log("");
         }
         await sleep(1000); // wait 1 second, to not lose connection
         try {
