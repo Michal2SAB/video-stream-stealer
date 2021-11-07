@@ -33,7 +33,7 @@ async function steal() {
         await sleep(1000);
         try {
             var nr = start.toString();
-            var url = `https://example.com/segments/720p-${nr}-v1.ts`; // the link you captured with fiddler while playing your video. ${nr} is the number for next .ts fragment, so it'd be "720p-121-v1.ts" for example.
+            var url = `https://example.com/segments/720p-${nr}.ts-v1.ts`; // the link you captured with fiddler while playing your video. ${nr} is the number for next .ts fragment, so it'd be "720p-121.ts-v1.ts" for example.
 
             if(start != end) console.log(`Downloading: "${nr}.ts"`);
             const file = fs.createWriteStream('./collection/' + nr + '.ts');
