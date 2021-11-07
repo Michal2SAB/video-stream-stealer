@@ -1,5 +1,5 @@
 # Description
-Download many .ts video stream files from a website, then create a single mp4 video file from it.
+Download many .ts video stream files from a website, then create a single mp4 video file from them.
 
 # How to do this
 
