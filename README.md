@@ -19,4 +19,4 @@ Download many .ts video stream files from a website, then create a single mp4 vi
 
 # Why even do this?
 
-Uh.. because some sites don't allow you to download their videos. On some sites you might even need to pay for the feature. Some only allow downloading low quality too. Plenty reasons.
+Uh.. because some sites don't allow you to download their videos. On some sites you might even need to pay for the feature. Some only allow downloading low quality too. Also many times you won't be able to capture the .m3u8 file. Plenty reasons.
