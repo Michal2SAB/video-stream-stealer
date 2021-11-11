@@ -9,7 +9,7 @@ Download many .ts video stream files from a website, then create a single mp4 vi
 
 1. Find the url for the .ts files. Fiddler is the best option imo, cause it's simple. Just capture traffic while you're watching the video.
 
-2. Edit the download.js file to update the ```url``` var + update ```start```, ```end```, and ```newstart``` vars. Read info next to them in code.
+2. Edit the download.js file to update the ```url``` var + update ```start``` and ```end``` vars. Read info next to them in code.
 
 3. Run the program by double clicking run.bat. 
 
