@@ -10,9 +10,9 @@ function sleep(millis) {
 async function steal() {
     var start = 0; // the first video segment number (sometimes it's 1)
     var end = 10; // the last video segment number (capture end of video with fiddler)
-    var newstart = 0; // same as start
 
     const path = "segments.txt"; // where all the info for ffmpeg will be stored.
+    if (fs.existsSync(path)) fs.unlinkSync(path); // if segments.txt exists, delete it first.
     
     // colors to make the console prettier
     const color = {
@@ -23,23 +23,6 @@ async function steal() {
     }
 
     while(start <= end) {
-        // if we downloaded all our segments, create segments.txt file and finish the program's job.
-        if(start === end) {
-            console.log("");
-            console.log(`${color.normal}>> ${color.green}Done! ${color.normal}Downloaded ${end} video segments.`);
-            console.log("");
-            console.log(`>> ${color.cyan}Creating segments.txt in collection folder..`)
-            
-            if (fs.existsSync(path)) fs.unlinkSync(path); // if segments.txt exists, delete it first.
-            while(newstart <= end) {
-                var nr = newstart.toString();
-                fs.appendFileSync(path, `file 'collection/${nr}.ts'\r\n`);
-                newstart++;
-            }
-            console.log("");
-            console.log(`${color.normal}>> ${color.green}Success! ${color.normal}Now it's time to merge all .ts files into one..`)
-            console.log("");
-        }
         await sleep(1000); // wait 1 second, to not lose connection
         try {
             var nr = start.toString();
@@ -52,9 +35,14 @@ async function steal() {
             response.pipe(file);
             });
             response;
+            fs.appendFileSync(path, `file 'collection/${nr}.ts'\r\n`);
             start++;
         } catch (err) {
             console.log(err);
         }
     }
+    console.log(color.normal);
+    console.log(`>>${color.green} Done!${color.normal} Downloaded ${color.yellow + nr + color.normal} .ts files. Now let's merge them all into one..`);
+    console.log("");
+};
 };
