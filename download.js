@@ -58,4 +58,3 @@ async function steal() {
         console.log("");
     }
 };
-};
