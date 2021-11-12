@@ -1,5 +1,6 @@
 const https = require('https'); // or 'http' for http:// URLs
 const fs = require('fs');
+const {execSync} = require('child_process');
 
 steal(); // run the whole program
 
@@ -19,7 +20,8 @@ async function steal() {
         green: '\x1b[32m',
         cyan: '\x1b[36m',
         normal: '\x1b[37m',
-        yellow: '\x1b[33m'
+        yellow: '\x1b[33m',
+        red: '\x1b[31m'
     }
 
     while(start <= end) {
@@ -41,8 +43,19 @@ async function steal() {
             console.log(err);
         }
     }
+    await sleep(1000);
     console.log(color.normal);
-    console.log(`>>${color.green} Done!${color.normal} Downloaded ${color.yellow + nr + color.normal} .ts files. Now let's merge them all into one..`);
+    console.log(`${color.green}>> Done!${color.normal} Downloaded ${color.yellow + nr + color.normal} .ts files. Now let's merge them all into one..`);
     console.log("");
+    try {
+        execSync("ffmpeg -f concat -i segments.txt -c copy tsvideo.ts -hide_banner -nostats -loglevel 0 -y");
+        console.log(`${color.green}>> Done!${color.normal} Now let's convert final .ts file to .mp4 video..`);
+        execSync("ffmpeg -i tsvideo.ts -acodec copy -vcodec copy mp4video.mp4 -hide_banner -nostats -loglevel 0 -y");
+        console.log("");
+        console.log(`${color.green}>> Success!${color.normal} Created brand new .mp4 video for you. Enjoy and thank${color.yellow} Michal2SAB${color.normal} lol`)
+    } catch (err) {
+        console.log(color.red + err + color.normal);
+        console.log("");
+    }
 };
 };
