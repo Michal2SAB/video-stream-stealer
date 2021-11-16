@@ -12,7 +12,7 @@ async function steal() {
     var start = 0; // the first video segment number (sometimes it's 1)
     var end = 10; // the last video segment number (capture end of video with fiddler)
     var outputName = 'mp4video'; // the output name you want for your converted mp4 video
-    var fixedName = outputName.replace(" ", "-");
+    var fixedName = outputName.replace(/ /g, "-");
 
     const path = "segments.txt"; // where all the info for ffmpeg will be stored.
     if (fs.existsSync(path)) fs.unlinkSync(path); // if segments.txt exists, delete it first.
