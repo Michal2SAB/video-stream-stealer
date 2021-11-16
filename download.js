@@ -11,6 +11,7 @@ function sleep(millis) {
 async function steal() {
     var start = 0; // the first video segment number (sometimes it's 1)
     var end = 10; // the last video segment number (capture end of video with fiddler)
+    var outputName = 'mp4video'; // the output name you want for your converted mp4 video
 
     const path = "segments.txt"; // where all the info for ffmpeg will be stored.
     if (fs.existsSync(path)) fs.unlinkSync(path); // if segments.txt exists, delete it first.
@@ -50,7 +51,7 @@ async function steal() {
     try {
         execSync("ffmpeg -f concat -i segments.txt -c copy tsvideo.ts -hide_banner -nostats -loglevel 0 -y");
         console.log(`${color.green}>> Done!${color.normal} Now let's convert final .ts file to .mp4 video..`);
-        execSync("ffmpeg -i tsvideo.ts -acodec copy -vcodec copy mp4video.mp4 -hide_banner -nostats -loglevel 0 -y");
+        execSync(`ffmpeg -i tsvideo.ts -acodec copy -vcodec copy ${outputName}.mp4 -hide_banner -nostats -loglevel 0 -y`);
         console.log("");
         console.log(`${color.green}>> Success!${color.normal} Created brand new .mp4 video for you. Enjoy and thank${color.yellow} Michal2SAB${color.normal} lol`)
     } catch (err) {
