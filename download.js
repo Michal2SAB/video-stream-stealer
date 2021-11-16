@@ -52,6 +52,9 @@ async function steal() {
         execSync("ffmpeg -f concat -i segments.txt -c copy tsvideo.ts -hide_banner -nostats -loglevel 0 -y");
         console.log(`${color.green}>> Done!${color.normal} Now let's convert final .ts file to .mp4 video..`);
         execSync(`ffmpeg -i tsvideo.ts -acodec copy -vcodec copy ${outputName}.mp4 -hide_banner -nostats -loglevel 0 -y`);
+        // If the conversion doesn't give wanted results or doesn't convert at all, you can replace the second command with 
+        // "ffmpeg -i tsvideo.ts -qscale 0 ${outputName}.mp4 -hide_banner -nostats -loglevel 0"
+        // note that output fiel size will increase.
         console.log("");
         console.log(`${color.green}>> Success!${color.normal} Created brand new .mp4 video for you. Enjoy and thank${color.yellow} Michal2SAB${color.normal} lol`)
     } catch (err) {
