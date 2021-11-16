@@ -9,6 +9,8 @@ function sleep(millis) {
 };
 
 async function steal() {
+    process.title = "Video Stream Stealer @Michal2SAB";
+    
     var start = 0; // the first video segment number (sometimes it's 1)
     var end = 10; // the last video segment number (capture end of video with fiddler)
     var outputName = 'mp4video'; // the output name you want for your converted mp4 video
